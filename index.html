@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>le.lore</title>
+<meta name="description" content="le.lore publishes short anime-lore videos. This is the official page for the tool behind the channel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ink:      #16161d;
+    --paper:    #fcfcfd;
+    --surface:  #f3f3f6;
+    --muted:    #5c5c6b;
+    --rule:     #e4e4ea;
+    --accent:   #3b3f8f;
+
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:     #e8e8ee;
+      --paper:   #131318;
+      --surface: #1c1c23;
+      --muted:   #9a9aab;
+      --rule:    #2c2c36;
+      --accent:  #9ba2f0;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink:     #e8e8ee;
+    --paper:   #131318;
+    --surface: #1c1c23;
+    --muted:   #9a9aab;
+    --rule:    #2c2c36;
+    --accent:  #9ba2f0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, p, ul, li, div, figure { margin: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 9vw, 7rem) clamp(1.25rem, 5vw, 2rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.25rem;
+  }
+
+  /* Wordmark — echoes the app icon: small accented "le." over a larger "lore" */
+  .wordmark {
+    font-family: var(--serif);
+    font-weight: 600;
+    line-height: 0.92;
+    display: flex;
+    flex-direction: column;
+  }
+  .wordmark .a {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    color: var(--accent);
+  }
+  .wordmark .b {
+    font-size: clamp(3rem, 9vw, 4.25rem);
+    letter-spacing: -0.02em;
+  }
+
+  .lede {
+    font-family: var(--serif);
+    font-size: clamp(1.125rem, 2.5vw, 1.3125rem);
+    line-height: 1.55;
+    max-width: 32rem;
+  }
+
+  section { display: flex; flex-direction: column; gap: 1rem; }
+
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.5rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .step .n {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .docs { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .doc {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.625rem 1rem;
+    transition: border-color 120ms ease, color 120ms ease;
+  }
+  .doc:hover, .doc:focus-visible { border-color: var(--accent); color: var(--accent); }
+  .doc:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    line-height: 1.9;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header style="display:flex; flex-direction:column; gap:1.75rem;">
+    <div class="wordmark">
+      <span class="a">le.</span>
+      <span class="b">lore</span>
+    </div>
+    <p class="lede">Short videos about the stories behind anime and manga — the details, the origins, the things fans argue about. Published in French on TikTok as <a href="https://www.tiktok.com/@le.lore">@le.lore</a>.</p>
+  </header>
+
+  <section>
+    <h2>The tool</h2>
+    <p>This site is the official page for the private software that produces and publishes those videos. It is run by one person, for one account. It is not a product, and it is not available to anyone else.</p>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><span>Picks a subject from public anime and manga sources.</span></div>
+      <div class="step"><span class="n">02</span><span>Writes a short narration and renders a vertical video with voice-over and subtitles.</span></div>
+      <div class="step"><span class="n">03</span><span>Runs automated quality checks, and stops anything that fails them.</span></div>
+      <div class="step"><span class="n">04</span><span>Uploads what passes to the operator's own TikTok account.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Documents</h2>
+    <div class="docs">
+      <a class="doc" href="terms.html">Terms of Service</a>
+      <a class="doc" href="privacy.html">Privacy Policy</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>Contact — <a href="mailto:joris.lerdamer@gmail.com">joris.lerdamer@gmail.com</a></div>
+    <div>Operated by an individual. No data is collected from anyone but the operator.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
