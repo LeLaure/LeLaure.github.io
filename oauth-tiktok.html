@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>le.lore — Authorization</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ink:      #16161d;
+    --paper:    #fcfcfd;
+    --surface:  #f3f3f6;
+    --muted:    #5c5c6b;
+    --rule:     #e4e4ea;
+    --accent:   #3b3f8f;
+    --ok:       #1c7a4d;
+    --warn:     #a33a2a;
+
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e8e8ee; --paper: #131318; --surface: #1c1c23;
+      --muted: #9a9aab; --rule: #2c2c36; --accent: #9ba2f0;
+      --ok: #5fd39b; --warn: #f0907f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8e8ee; --paper: #131318; --surface: #1c1c23;
+    --muted: #9a9aab; --rule: #2c2c36; --accent: #9ba2f0;
+    --ok: #5fd39b; --warn: #f0907f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, p, div, pre { margin: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 8vw, 5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
+
+  .status { font-size: 1rem; font-weight: 500; }
+  .status.ok   { color: var(--ok); }
+  .status.warn { color: var(--warn); }
+
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  pre.value {
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 0.875rem 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    user-select: all;
+  }
+
+  button {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--accent);
+    border: 0;
+    border-radius: 4px;
+    padding: 0.625rem 1.125rem;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  button[disabled] { opacity: 0.6; cursor: default; }
+
+  .note {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--surface);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="eyebrow">le.lore</div>
+  <h1>TikTok authorization</h1>
+  <div id="status" class="status">Reading the response…</div>
+  <div id="out"></div>
+  <p class="note">This page only displays what TikTok sent back. Nothing is stored, transmitted, or logged here. Copy the code into the waiting terminal — it is single-use and expires within minutes.</p>
+</div>
+
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var status = document.getElementById("status");
+  var out    = document.getElementById("out");
+
+  function field(label, value, withCopy) {
+    var wrap = document.createElement("div");
+    wrap.className = "field";
+    wrap.style.marginTop = "1.5rem";
+
+    var lab = document.createElement("div");
+    lab.className = "label";
+    lab.textContent = label;
+
+    var pre = document.createElement("pre");
+    pre.className = "value";
+    pre.textContent = value;
+
+    wrap.appendChild(lab);
+    wrap.appendChild(pre);
+
+    if (withCopy && navigator.clipboard) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = "Copy code";
+      btn.addEventListener("click", function () {
+        navigator.clipboard.writeText(value).then(function () {
+          btn.textContent = "Copied";
+          btn.disabled = true;
+        });
+      });
+      wrap.appendChild(btn);
+    }
+    out.appendChild(wrap);
+  }
+
+  var error = params.get("error");
+  var code  = params.get("code");
+
+  if (error) {
+    status.textContent = "TikTok refused the authorization.";
+    status.className = "status warn";
+    field("error", error, false);
+    var desc = params.get("error_description");
+    if (desc) { field("description", desc, false); }
+    return;
+  }
+
+  if (!code) {
+    status.textContent = "No authorization code in this address.";
+    status.className = "status warn";
+    out.innerHTML =
+      '<p style="margin-top:1.5rem">Open this page only through the TikTok authorization flow — ' +
+      'start it from the terminal with <code>sf auth tiktok</code>.</p>';
+    return;
+  }
+
+  status.textContent = "Authorization granted. Copy the code below.";
+  status.className = "status ok";
+
+  field("authorization code", code, true);
+
+  var scopes = params.get("scopes");
+  if (scopes) { field("scopes granted", scopes.split(",").join("\n"), false); }
+
+  var state = params.get("state");
+  if (state) { field("state", state, false); }
+})();
+</script>
+
+</body>
+</html>
