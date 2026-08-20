@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Terms of Service for le.lore, a private tool that publishes short anime-lore videos to a single TikTok account.">
+<title>le.lore Terms of Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ink:      #16161d;
+    --paper:    #fcfcfd;
+    --surface:  #f3f3f6;
+    --muted:    #5c5c6b;
+    --rule:     #e4e4ea;
+    --accent:   #3b3f8f;
+
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink:     #e8e8ee;
+      --paper:   #131318;
+      --surface: #1c1c23;
+      --muted:   #9a9aab;
+      --rule:    #2c2c36;
+      --accent:  #9ba2f0;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink:     #e8e8ee;
+    --paper:   #131318;
+    --surface: #1c1c23;
+    --muted:   #9a9aab;
+    --rule:    #2c2c36;
+    --accent:  #9ba2f0;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 43rem;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  header { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5.5vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    line-height: 1.9;
+    color: var(--muted);
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    padding: 0.875rem 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .meta b { color: var(--ink); font-weight: 500; }
+
+  .lede {
+    font-family: var(--serif);
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  main { display: flex; flex-direction: column; gap: 2.25rem; }
+
+  section { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 .num {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  p { color: var(--ink); }
+  p + p { margin-top: 0.75rem; }
+
+  ul { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1.125rem; }
+  li { padding-left: 0.25rem; }
+  li::marker { color: var(--accent); }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.875em;
+    background: var(--surface);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, p, ul, li, div { margin: 0; }
+  ul { list-style-position: outside; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">le.lore</div>
+    <h1>Terms of Service</h1>
+    <div class="meta">
+      <div><b>Effective</b> 20 August 2026</div>
+      <div><b>Version</b> 1.0</div>
+      <div><b>Operator</b> the individual owner of the TikTok account @le.lore</div>
+      <div><b>Contact</b> <a href="mailto:joris.lerdamer@gmail.com">joris.lerdamer@gmail.com</a></div>
+    </div>
+    <p class="lede">le.lore is a private, single-operator tool that produces short anime-lore videos and uploads them to one TikTok account: the operator's own. It has no other users, and it is not offered to the public.</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2><span class="num">1</span> Scope</h2>
+      <p>These terms cover the software referred to here as “the tool”, together with its TikTok integration. The tool is operated privately by one person for one TikTok account. There is no sign-up, no account creation, and no service offered to third parties.</p>
+      <p>Because the tool has a single operator, that person is simultaneously its owner and its only user. References below to “you” mean that operator.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">2</span> What the tool does</h2>
+      <ul>
+        <li>Selects subjects relating to anime and manga from public sources.</li>
+        <li>Writes a short narration script and renders it as a vertical video with synthetic voice-over and subtitles.</li>
+        <li>Checks the finished video against automated quality rules before anything is uploaded.</li>
+        <li>Uploads the video to the operator's own TikTok account through TikTok's Content Posting API.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">3</span> TikTok authorization</h2>
+      <p>The tool uploads only to the account that explicitly authorized it through TikTok's standard OAuth flow. It requests the narrowest set of permissions needed to publish a video and to read back the account's own posting options.</p>
+      <p>Authorization can be revoked at any time from TikTok's own account settings. Revoking it stops all uploads immediately.</p>
+      <p>Until the application passes TikTok's review, every upload is created with <code>SELF_ONLY</code> visibility, meaning the video is visible to the account owner alone.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">4</span> Content and rights</h2>
+      <p>The operator is responsible for the content published through the tool. Visual material is drawn from sources whose licence permits commercial use and derivative works, or is generated. Material without an identifiable licence is rejected automatically before it can reach a video.</p>
+      <p>Published content is subject to TikTok's Community Guidelines and Terms of Service. Nothing here overrides them.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> No warranty</h2>
+      <p>The tool is provided as-is, for the operator's own use. It carries no warranty of availability, accuracy, or fitness for any purpose, and the operator accepts full responsibility for anything published through it.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">6</span> Changes</h2>
+      <p>These terms may be updated as the tool changes. The effective date above always reflects the current version. Because the tool has a single operator, no notification mechanism is required.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">7</span> Contact</h2>
+      <p>Questions about these terms can be sent to the contact address listed at the top of this page.</p>
+    </section>
+
+  </main>
+
+  <footer>le.lore — Terms of Service — version 1.0 — 20 August 2026</footer>
+
+</div>
+</body>
+</html>
